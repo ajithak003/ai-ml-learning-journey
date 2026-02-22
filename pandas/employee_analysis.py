@@ -22,7 +22,7 @@ print(f"after handling missing values:\n {df}")
 print(f"Average salary:\n {df['salary'].mean()}")
 
 #Task 2: Highest salary person
-print(f"Person with highest salary:\n {df[df['salary'] == df['salary'].max()]['name'].values[0]}")
+print(f"Person with highest salary:\n {df.loc[df['salary'].idxmax()]['name'].values[0]}")
 
 #Task 3: IT dept avg salary
 print(f"Average salary in IT department:\n {df[df['dept'] == 'IT']['salary'].mean()}")

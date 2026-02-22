@@ -18,11 +18,14 @@ print(f"df.info(): {df.info()}")
 print(f"df.describe(): {df.describe()}")
 
 #SELECT & FILTER DATA
-print(f"selected single column: {df['name']}")
+print(f"selected single column: \n{df['name']}")
 print(f"selected multiple columns: {df[['name', 'age']]}")
-print(f"filtered rows for IT department: {df[df['dept'] =='IT']}")
-print(f"filtered rows for age > 28: {df[df['age'] > 28]}")
-print(f"filtered rows for salary > 50000 and dept == IT: {df[(df['salary'] > 50000) & (df['dept'] == 'IT')]}")
+print("\n=== Filtered IT Employees ===")
+print(df[df["dept"]=="IT"])
+print("\n=== Filtered rows for age > 28 ===")
+print(df[df['age'] > 28])
+print("\n=== Filtered rows for salary > 50000 and dept == IT ===")
+print(df[(df['salary'] > 50000) & (df['dept'] == 'IT')])
 
 # HANDLE MISSING VALUES
 print(f"df.isnull(): {df.isnull()}")
@@ -35,7 +38,7 @@ df.dropna(inplace=True)
 print(f"after handling missing values: {df}")
 
 #NEW COLUMN CREATION
-df["Senior"] = df["age"].apply(lambda x: "Yes" if x > 30 else "N0")
+df["Senior"] = df["age"].apply(lambda x: "Yes" if x > 30 else "No")
 print(f"after creating new column: {df}")
 
 #GROUPBY
